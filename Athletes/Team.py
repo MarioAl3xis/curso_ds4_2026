@@ -29,6 +29,13 @@ class Team:
         """ String representation of the Team class"""
         return f"{self.name} - {self.sport}: {[x for x in self.athletes]}"
 
+    def __repr__(self) -> str:
+        return f"Sport('{self.name}', {self.sport}, '{[x for x in self.athletes]}')"
+ 
+    def display(self):
+        print (f"|{self.name}|{self.sport}|{[x for x in self.athletes]}")
+
+
 if __name__ == "__main__":
     a = Athlete("Lionel Messi",38,"Soccer")
     b = Athlete("Cristiano Ronaldo",40,"Soccer")
@@ -39,3 +46,7 @@ if __name__ == "__main__":
     stars.add_athlete(b)
     stars.add_athlete(c)
     print(stars)
+    a.display()
+    b.display()
+    c.display()
+    s.display()
