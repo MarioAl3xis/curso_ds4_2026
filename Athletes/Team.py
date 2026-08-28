@@ -1,6 +1,6 @@
 """
 Doc string for Team.py
-Author: Federico Cirett Galán
+Author: Mario Alexis García Rodríguez
 Date: Aug 26,2026
 """
 from Athlete import Athlete
