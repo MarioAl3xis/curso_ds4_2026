@@ -2,6 +2,7 @@
 import os 
 from pathlib import Path
 from random import choice
+import argparse
 
 def load_words(file_path: str) -> list:
     """Load a list of words from a text file."""
@@ -114,9 +115,11 @@ class Hangman:
             break
 
 if __name__ == "__main__":
+     ## Example usage 
+    parser = argparse.ArgumentParser(description="Play Hangman in the terminal.")
+    parser.add_argument("--word_file", "-w", type=str, default="word_list_prog.txt", help="Path to the word list file.")
+    args = parser.parse_args()
     word_list = load_words("word_list_prog.txt")
-
-    ## Example usage 
     game = Hangman(word_list)
     game.load_board()
     game.play()

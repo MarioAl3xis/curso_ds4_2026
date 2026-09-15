@@ -1,13 +1,13 @@
-    python
-    hangman
-    programming
-    challenge 
-    function 
-    variable
-    loop
-    condition 
-    class
-    object
-    dynamic
-    memory
-    handling
+python
+hangman
+programming
+challenge 
+function
+variable
+loop
+condition 
+class
+object
+dynamic
+memory
+handling
