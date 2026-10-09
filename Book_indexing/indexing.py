@@ -89,6 +89,23 @@ def main(args):
                 book_dictionary[file] = load_book(os.path.join(book_path, file))
     else:
         print(f"Error: The path '{book_path}' is neither a file nor a directory.")
+    #print("Book dictionary.keys())
+    word_to_check = args.word_to_check
+    result_list = search_word_in_books(word_to_check, book_dictionary)
+    for book, tfidf in result_list:
+        print(f"Book: {book}, TF-IDF for '{word_to_check}': {tfidf:.6f}")
+
+
+def search_word(book_dictionary, word)-> list:
+    """
+        Searches for a word in the book dictionary and returns a list of books containing the word.""""
+    tfidf_dict = book_indexing(book_dictionary)
+    print("TF-IDF Dictionary:", tfidf_dict.keys())
+    print(f"TF-IDF for the word '{word}':")
+
+
+    
+'''
     ##print("Number of words in the cleaned list:", len(cleaned_words))
     for book, words in book_dictionary.items():
         cleaned_words = clean_list_of_words(words)
@@ -104,9 +121,10 @@ def main(args):
             if tf >= 0.00001:  # Only print words with a non-zero term frequency
                 print(f" {word}: {tf:.4f}")
 
-    print("Number of words in the cleaned list:", len(cleaned_words))
+    print("Number of words in the cleaned list:", len(cleaned_words))'''
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Index books.")
-    parser.add_argument("book_path", type=str, help="Path to the books text files.")
+    parser.add_argument("book_path", type=str, help="Path to the books text files.", default="texts")
+    parser.add_argument("word_to_check", type=str, help="Word to check TF-IDF for.", default="dracula")
     args = parser.parse_args()
     main(args)
